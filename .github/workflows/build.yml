@@ -53,3 +53,15 @@ jobs:
           /p:AppxPackageSigningEnabled=false
           /p:GenerateAppxPackageOnBuild=false
           /v:minimal
+
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: FluentBitwarden-x64-Release
+          path: |
+            **/bin/x64/Release/**
+          if-no-files-found: error
+          retention-days: 30
+
+          
